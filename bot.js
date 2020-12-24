@@ -66,7 +66,7 @@ cmds.verify = (msg, args) => {
   let guild = bot.guilds.cache.find(g => g.id == "691609473252458546");
   if (args[0] !== memberid) return msg.reply('The correct command : `r!verify <id>`\nYour ID : ```' + msg.author.id + '```')
   if (!memberid) return msg.reply('The correct command : `r!verify <id>`\nYour ID : ```' + msg.author.id + '```')
-    if (msg.channel.name === 'verify') {
+    if (msg.channel.name === '✅verify') {
       if (memberid === msg.author.id) {
         msg.channel.send('You are now verified!')
         guild.member(msg.author).roles.add('718057061853823097');
