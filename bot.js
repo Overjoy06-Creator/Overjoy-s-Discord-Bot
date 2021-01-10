@@ -796,10 +796,4 @@ bot.on("messageReactionRemove", async (reaction, user) => {
   }
 });
 
-bot.on("disconnect", function(event){
-  bot.users.fetch('544776631672242176').then((user) => { 
-    user.send("I have died.");
-  })
-});
-
 bot.login(process.env.BOT_TOKEN);
