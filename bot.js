@@ -377,25 +377,6 @@ cmds.urban = (msg, args) => {
 })
 };
 
-cmds.suggest = async (msg, args) => {
-  if (msg.channel.id !== "699970320081354782") {
-    return msg.reply(
-      "Wrong Channel. Please go to <#699970320081354782> to suggest an idea of yours."
-    );
-  }
-    console.log("new suggestion")
-  let poll = args.splice(0).join(" ");
-  let embed = new Discord.MessageEmbed()
-    .setColor(0xfcd420)
-    .setDescription(poll);
-  getChannel("📜polls", msg.guild)
-    .send(embed)
-    .then(embedMessage => {
-      embedMessage.react("👍");
-      embedMessage.react("👎");
-    });
-}
-
 cmds.reddit = async (msg, args) => {
   try {
     args.join(" ");
