@@ -555,19 +555,6 @@ bot.on("ready", async () => {
 bot.on("message", msg => {
   if (msg.author.bot) return;
   if (msg.channel.type == "dm") return;
-  china_good = [
-     "china good",
-     "i love china",
-     "xi ok",
-     "xi great",
-     "xi perfect"
-  ]
-  if (msg.content == china_good = {
-        msg.channel.send("好公民! +56社会信用")
-      }
-  else {
-    msg.channel.send("坏公民! -56个社会信用")
-  }
   if (
     msg.content.startsWith(prefix) ||
     msg.content.startsWith(prefix.toUpperCase())
