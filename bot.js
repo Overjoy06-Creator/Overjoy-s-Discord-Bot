@@ -22,7 +22,7 @@ const activities_list = [
   "with the r!help command.",
   "Minecraft",
   "Roblox",
-  "with Seniru"
+  "watching gay porn"
 ];
 /** Helpful functions*/
 const getRole = (role, guild) => guild.roles.cache.find(r => r.name === role);
@@ -60,23 +60,9 @@ cmds.wikipedia = (msg, args) => {
     msg.channel.send(error)
   })
 };
-
-cmds.verify = (msg, args) => {
-  let memberid = args[0]
-  let guild = bot.guilds.cache.find(g => g.id == "691609473252458546");
-  if (args[0] !== memberid) return msg.reply('The correct command : `r!verify <id>`\nYour ID : ```' + msg.author.id + '```')
-  if (!memberid) return msg.reply('The correct command : `r!verify <id>`\nYour ID : ```' + msg.author.id + '```')
-    if (msg.channel.name === '✅verify') {
-      if (memberid === msg.author.id) {
-        msg.channel.send('You are now verified!')
-        guild.member(msg.author).roles.add('718057061853823097');
-        guild.member(msg.author).roles.remove('718079016372011089')
-      }
-   }
-}
                    
 cmds.serverstatus = async (msg, args) => {
-  util.ping('wtal.aternos.me', { port: 25565 }) // port is optional, defaults to 25565
+  util.ping('WTAL.aternos.me', { port: 25565 }) // port is optional, defaults to 25565
     .then((response) => {
         let a = response.version.replace("Â§4â", "").replace("Â§7â", "")
         let embed = new Discord.MessageEmbed()
@@ -123,7 +109,7 @@ cmds.robloxprofile = async (msg, args) => {
             thumbnail: {
               url: `http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=${name}`
             },
-            description: `ID: ${data.Id}\nUsername: ${data.Username}\nOnline: ${data.IsOnline}\nFriends: ${friendCount}\nGroup: ${clan}`,
+            description: `ID: ${data.Id}\nUsername: ${data.Username}\nOnline: ${data.IsOnline}\nFriends: ${friendCount}`,
             color: 0x00ff00
           });
           msg.channel.send(embed);
@@ -222,47 +208,6 @@ cmds.ping = msg => {
   });
 };
 
-cmds.rps = async (message, args) => {
-  let rps = ["scissors", "paper", "rock"];
-  let i;
-  if (!rps.includes(args[0]))
-    return message.reply("Please choose rock, paper or scissor.");
-  if (args[0].includes("rock")) {
-    i = 2;
-  }
-  if (args[0].includes("paper")) {
-    i = 1;
-  }
-  if (args[0].includes("scissors")) {
-    i = 0;
-  }
-  if (rps[i]) {
-    let comp = Math.floor(Math.random() * 3 + 1);
-    let comp_res = parseInt(comp) - parseInt("1");
-    let comp_val = rps[parseInt(comp_res)];
-    if (i === comp_res) {
-      return message.channel.send(
-        `You chose **${
-          args[0]
-        }** and I chose **${comp_val}** and we tied, wanna try again?`
-      );
-    }
-    if (i > comp_res) {
-      return message.channel.send(
-        `You chose **${
-          args[0]
-        }** and I chose **${comp_val}** and I won! Well played.`
-      );
-    }
-    if (i < comp_res) {
-      return message.channel.send(
-        `You chose **${
-          args[0]
-        }** and I chose **${comp_val}** and I lost! Congrats on winning!`
-      );
-    }
-  }
-};
 cmds.purge = async (msg, args) => {
   if (msg.deletable) {
     msg.delete();
@@ -293,10 +238,6 @@ cmds.purge = async (msg, args) => {
 };
 
 cmds.meme = async (msg, args) => {
-    if (msg.channel.name !== "😂memes") // 710142280484257856
-      return msg.channel.send(
-        "Wrong Channel, Please head on to <#710142280484257856> to use the meme command."
-      );
   try {
     let subreddits = [
       "comedyheaven",
