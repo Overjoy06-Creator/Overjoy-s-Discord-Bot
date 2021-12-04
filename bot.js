@@ -562,7 +562,7 @@ bot.on("message", msg => {
      "xi great",
      "xi perfect"
   ]
-  if (msg.content = china_good = {
+  if (msg.content == china_good = {
         msg.channel.send("好公民! +56社会信用")
       }
   else {
