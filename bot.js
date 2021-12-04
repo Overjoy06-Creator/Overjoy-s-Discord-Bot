@@ -281,23 +281,6 @@ cmds.meme = async (msg, args) => {
   }
 };
 
-cmds.question = async (msg, args) => {
-  let qotd = args[0];
-  let question = args.splice(1).join(" ");
-  if (!msg.member.hasPermission(Discord.Permissions.FLAGS.MANAGE_MESSAGES)) {
-    return msg.reply("You can't use this command...");
-  }
-
-  let embed = new Discord.MessageEmbed()
-    .setTitle("QOTD #" + qotd)
-    .setDescription(question)
-    .setColor(0x00ff00)
-    .setFooter(`Created By : ${msg.author.username}`);
-
-  getChannel("qotd", msg.guild).send(embed);
-  msg.delete();
-};
-
 cmds.urban = (msg, args) => {
   let definition = args.join(" ")
   ud.term(definition, (error, entries, tags, sounds) => {
@@ -447,7 +430,7 @@ cmds.help = msg => {
   let embed = new Discord.MessageEmbed()
     .setTitle("Help :speech_balloon:")
     .setDescription(
-      "**Commands** : \n\n`r!help` - Shows This Embed Message\n`r!profile <player_name>` - Shows The Roles of The Person and Shows Their Profile Picture\n`r!8ball` - Ask 8ball a question and it will answer your question.\n`r!meme` - Generates a random meme.\n`r!dog` - Generates a random dog image.\n`r!cat` - Gemerates a random cat image.\n`r!avatar <player_name>` - Shows the person's avatar\n`r!rps <choice>` - Plays a game of rock paper scissors.\n`r!suggest <suggestion>` - Suggests something and the admins will decide to approve it or not.\n\n**Mod Commands**\n\n`r!kick <player_name>` - Kicks Person\n`r!ban <player_name>` - Bans Person\n`r!nickname <player_name> <nickname>` - Changes The Person's Nickname.\n`r!purge <amount>` - Deletes all the previous messages depending on the amount.`"
+      "**Commands** : \n\n`r!meme\nr!dog <dog_breed>`\nr!cat\nr!profile <@Player>\nr!avatar <@Player>\nr!reddit <reddit_name>\nr!8ball"
     )
     .setColor(0x00ff00);
 
@@ -559,28 +542,6 @@ cmds.ban = (message, args) => {
   }
 };
 
-cmds.updateSelfRole = msg => {
-  if (
-    !(
-      msg.author.id == "522972601488900097" ||
-      msg.author.id == "544776631672242176"
-    )
-  )
-    return;
-  let embed = new Discord.MessageEmbed({
-    title: "Self role",
-    description: `**What Game Do You Mainly Play?**\n<:roblox:712556824599199785> - <@&705257970472321094>\n\n**What Gender Are You?**\nMale♂️ - <@&705258031755034700>\nFemale♀️ - <@&705258051795550238>`,
-    color: 0x00ff00
-  });
-
-  msg.channel.messages.fetch("712591159284727810").then(emsg => {
-    emsg.edit(embed);
-    emsg.react("712556824599199785"); // roblox
-    emsg.react("712866484644479086"); // male
-    emsg.react("712866515690455110"); // female
-  });
-};
-
 /** Discord events */
 
 bot.on("ready", async () => {
@@ -594,6 +555,19 @@ bot.on("ready", async () => {
 bot.on("message", msg => {
   if (msg.author.bot) return;
   if (msg.channel.type == "dm") return;
+  china_good = [
+     "china good",
+     "i love china",
+     "xi ok",
+     "xi great",
+     "xi perfect"
+  ]
+  if (msg.content = china_good = {
+        msg.channel.send("好公民! +56社会信用")
+      }
+  else {
+    msg.channel.send("坏公民! -56个社会信用")
+  }
   if (
     msg.content.startsWith(prefix) ||
     msg.content.startsWith(prefix.toUpperCase())
